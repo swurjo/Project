@@ -1,0 +1,38 @@
+ALTER TABLE [GrossProfitability].[FactAccountBalanceSnapshots]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactAccountBalanceSnapshots_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [GrossProfitability].[FactAccountBalanceSnapshots]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactAccountBalanceSnapshots_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [GrossProfitability].[FactAccountBalanceSnapshots]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactAccountBalanceSnapshots_DimDate] FOREIGN KEY ([CalendarDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [GrossProfitability].[FactAccountBalanceSnapshots]
+    WITH NOCHECK ADD CONSTRAINT [FK3_FactAccountBalanceSnapshots_DimDate] FOREIGN KEY ([LastBalanceDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [GrossProfitability].[FactAccountBalanceSnapshots]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactAccountBalanceSnapshots_DimSourceProvider] FOREIGN KEY ([SourceProviderKey])  REFERENCES [Dimensions].[DimSourceProvider]([SourceProviderKey]);
+
+ALTER TABLE [GrossProfitability].[FactAccountBalanceSnapshots]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactAccountBalanceSnapshots_DimBookingSystemAccount] FOREIGN KEY ([FirmAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [GrossProfitability].[FactTransactionSummaries]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTransactionSummaries_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [GrossProfitability].[FactTransactionSummaries]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTransactionSummaries_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [GrossProfitability].[FactTransactionSummaries]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTransactionSummaries_DimExchange] FOREIGN KEY ([ExchangeKey])  REFERENCES [Dimensions].[DimExchange]([ExchangeKey]);
+
+ALTER TABLE [GrossProfitability].[FactTransactionSummaries]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTransactionSummaries_DimTradingMethod] FOREIGN KEY ([TradingMethodKey])  REFERENCES [Dimensions].[DimTradingMethod]([TradingMethodKey]);
+
+ALTER TABLE [GrossProfitability].[FactTransactionSummaries]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTransactionSummaries_DimSourceProvider] FOREIGN KEY ([SourceProviderKey])  REFERENCES [Dimensions].[DimSourceProvider]([SourceProviderKey]);
+
+ALTER TABLE [GrossProfitability].[FactTransactionSummaries]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTransactionSummaries_DimBookingSystemAccount] FOREIGN KEY ([FirmAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [GrossProfitability].[FactTransactionSummaries]
+    WITH NOCHECK ADD CONSTRAINT [FK_FactTransactionSummaries_DimProduct] FOREIGN KEY ([ContractKey])  REFERENCES [Dimensions].[DimProduct]([ProductKey]);

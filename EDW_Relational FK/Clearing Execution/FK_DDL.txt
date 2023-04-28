@@ -1,0 +1,398 @@
+ALTER TABLE [ClearingExecution].[FactCashJournals]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactCashJournals_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactCashJournals]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactCashJournals_DimClientAccount] FOREIGN KEY ([TradingAccountKey])  REFERENCES [Dimensions].[DimClientAccount]([ClientAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactCashJournals]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactCashJournals_DimSegregatedFund] FOREIGN KEY ([SegregatedFundKey])  REFERENCES [Dimensions].[DimSegregatedFund]([SegregatedFundKey]);
+
+ALTER TABLE [ClearingExecution].[FactCashJournals]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactCashJournals_DimSourceProvider] FOREIGN KEY ([SourceProviderKey])  REFERENCES [Dimensions].[DimSourceProvider]([SourceProviderKey]);
+
+ALTER TABLE [ClearingExecution].[FactCashJournals]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactCashJournals_DimClientAccount] FOREIGN KEY ([MarginAccountKey])  REFERENCES [Dimensions].[DimClientAccount]([ClientAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactCashJournals]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactCashJournals_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [ClearingExecution].[FactCashJournals]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactCashJournals_DimParty] FOREIGN KEY ([BookerPartyKey])  REFERENCES [Dimensions].[DimParty]([PartyKey]);
+
+ALTER TABLE [ClearingExecution].[FactCashJournals]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactCashJournals_DimGLAccount] FOREIGN KEY ([GLAccountKey])  REFERENCES [Dimensions].[DimGLAccount]([GLAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactCashJournals]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactCashJournals_DimCashJournalInfo] FOREIGN KEY ([CashJournalInfoKey])  REFERENCES [Dimensions].[DimCashJournalInfo]([CashJournalInfoKey]);
+
+ALTER TABLE [ClearingExecution].[FactCashJournals]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactCashJournals_DimBookingSystemAccount] FOREIGN KEY ([TradingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactCashJournals]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactCashJournals_DimBookingSystemAccount] FOREIGN KEY ([MarginAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactCashJournals]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactCashJournals_DimGLPosting] FOREIGN KEY ([GLPostingKey])  REFERENCES [Dimensions].[DimGLPosting]([GLPostingKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAccounts_DimAccountManager] FOREIGN KEY ([AccountManagerKey])  REFERENCES [Dimensions].[DimAccountManager]([AccountManagerKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAccounts_DimSalesEntity] FOREIGN KEY ([CurrentSalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAccounts_DimDepartment] FOREIGN KEY ([CurrentDepartmentKey])  REFERENCES [Dimensions].[DimDepartment]([DepartmentKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAccounts_DimParty] FOREIGN KEY ([OpeningPartyKey])  REFERENCES [Dimensions].[DimParty]([PartyKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAccounts_DimClearingAccountInfo] FOREIGN KEY ([CurrentClearingAccountInfoKey])  REFERENCES [Dimensions].[DimClearingAccountInfo]([ClearingAccountInfoKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAccounts_DimAccountStatus] FOREIGN KEY ([CurrentClearingAccountStatusKey])  REFERENCES [Dimensions].[DimAccountStatus]([AccountStatusKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAccounts_DimDate] FOREIGN KEY ([OpenDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactClearingAccounts_DimDate] FOREIGN KEY ([ReopenDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK3_FactClearingAccounts_DimDate] FOREIGN KEY ([FirstFundDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK4_FactClearingAccounts_DimDate] FOREIGN KEY ([FirstTradeDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK5_FactClearingAccounts_DimDate] FOREIGN KEY ([FirstCheckDepositDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK6_FactClearingAccounts_DimDate] FOREIGN KEY ([FirstRevenueDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK7_FactClearingAccounts_DimDate] FOREIGN KEY ([LastFundDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK8_FactClearingAccounts_DimDate] FOREIGN KEY ([LastTradeDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK9_FactClearingAccounts_DimDate] FOREIGN KEY ([LastCheckDepositDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK11_FactClearingAccounts_DimDate] FOREIGN KEY ([DormancyDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK10_FactClearingAccounts_DimDate] FOREIGN KEY ([CloseDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAccounts_DimBookingSystemAccount] FOREIGN KEY ([CurrentMarginAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactClearingAccounts_DimBookingSystemAccount] FOREIGN KEY ([RJOClearingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK3_FactClearingAccounts_DimBookingSystemAccount] FOREIGN KEY ([CommissionsFeesAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAdjustments_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactClearingAdjustments_DimDate] FOREIGN KEY ([CalendarDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAdjustments_DimSegregatedFund] FOREIGN KEY ([SegregatedFundKey])  REFERENCES [Dimensions].[DimSegregatedFund]([SegregatedFundKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAdjustments_DimFeeSchedule] FOREIGN KEY ([FeeScheduleKey])  REFERENCES [Dimensions].[DimFeeSchedule]([FeeScheduleKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAdjustments_DimSourceProvider] FOREIGN KEY ([SourceProviderKey])  REFERENCES [Dimensions].[DimSourceProvider]([SourceProviderKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAdjustments_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAdjustments_DimExchange] FOREIGN KEY ([ExchangeKey])  REFERENCES [Dimensions].[DimExchange]([ExchangeKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAdjustments_DimContractSpecification] FOREIGN KEY ([ContractSpecificationKey])  REFERENCES [Dimensions].[DimContractSpecification]([ContractSpecificationKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAdjustments_DimParty] FOREIGN KEY ([BookerPartyKey])  REFERENCES [Dimensions].[DimParty]([PartyKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAdjustments_DimAdjustmentInfo] FOREIGN KEY ([AdjustmentInfoKey])  REFERENCES [Dimensions].[DimAdjustmentInfo]([AdjustmentInfoKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAdjustments_DimBookingSystemAccount] FOREIGN KEY ([ClearingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingAdjustments_DimProduct] FOREIGN KEY ([ContractKey])  REFERENCES [Dimensions].[DimProduct]([ProductKey]);
+
+ALTER TABLE [ClearingExecution].[FactCollateral]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactCollateral_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactCollateral]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactCollateral_DimInstrument] FOREIGN KEY ([InstrumentKey])  REFERENCES [Dimensions].[DimInstrument]([InstrumentKey]);
+
+ALTER TABLE [ClearingExecution].[FactCollateral]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactCollateral_DimSegregatedFund] FOREIGN KEY ([SegregatedFundKey])  REFERENCES [Dimensions].[DimSegregatedFund]([SegregatedFundKey]);
+
+ALTER TABLE [ClearingExecution].[FactCollateral]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactCollateral_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [ClearingExecution].[FactCollateral]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactCollateral_DimAdjustmentInfo] FOREIGN KEY ([AdjustmentInfoKey])  REFERENCES [Dimensions].[DimAdjustmentInfo]([AdjustmentInfoKey]);
+
+ALTER TABLE [ClearingExecution].[FactCollateral]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactCollateral_DimDate] FOREIGN KEY ([DepositDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactCollateral]
+    WITH NOCHECK ADD CONSTRAINT [FK3_FactCollateral_DimDate] FOREIGN KEY ([MaturityDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactCollateral]
+    WITH NOCHECK ADD CONSTRAINT [FK4_FactCollateral_DimDate] FOREIGN KEY ([CouponDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactCollateral]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactCollateral_DimBookingSystemAccount] FOREIGN KEY ([ClearingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactCollateral]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactCollateral_DimBookingSystemAccount] FOREIGN KEY ([MarginAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactCollateral]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactCollateral_DimParty] FOREIGN KEY ([BookerPartyKey])  REFERENCES [Dimensions].[DimParty]([PartyKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginCalls]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginCalls_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginCalls]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginCalls_DimSegregatedFund] FOREIGN KEY ([SegregatedFundKey])  REFERENCES [Dimensions].[DimSegregatedFund]([SegregatedFundKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginCalls]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactMarginCalls_DimDate] FOREIGN KEY ([MarginCallDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginCalls]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginCalls_DimSourceProvider] FOREIGN KEY ([SourceProviderKey])  REFERENCES [Dimensions].[DimSourceProvider]([SourceProviderKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginCalls]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginCalls_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginCalls]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginCalls_DimMarginCallInfo] FOREIGN KEY ([MarginCallInfoKey])  REFERENCES [Dimensions].[DimMarginCallInfo]([MarginCallInfoKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginCalls]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginCalls_DimBookingSystemAccount] FOREIGN KEY ([MarginAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginedPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginedPositions_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginedPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginedPositions_DimExchange] FOREIGN KEY ([ExchangeKey])  REFERENCES [Dimensions].[DimExchange]([ExchangeKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginedPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginedPositions_DimContractSpecification] FOREIGN KEY ([ContractSpecificationKey])  REFERENCES [Dimensions].[DimContractSpecification]([ContractSpecificationKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginedPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginedPositions_DimSegregatedFund] FOREIGN KEY ([SegregatedFundKey])  REFERENCES [Dimensions].[DimSegregatedFund]([SegregatedFundKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginedPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginedPositions_DimCarryingBroker] FOREIGN KEY ([CarryingBrokerKey])  REFERENCES [Dimensions].[DimCarryingBroker]([CarryingBrokerKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginedPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginedPositions_DimPositionInfo] FOREIGN KEY ([PositionInfoKey])  REFERENCES [Dimensions].[DimPositionInfo]([PositionInfoKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginedPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginedPositions_DimSourceProvider] FOREIGN KEY ([SourceProviderKey])  REFERENCES [Dimensions].[DimSourceProvider]([SourceProviderKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginedPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginedPositions_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginedPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginedPositions_DimBookingSystemAccount] FOREIGN KEY ([MarginAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginedPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginedPositions_DimProduct] FOREIGN KEY ([ContractKey])  REFERENCES [Dimensions].[DimProduct]([ProductKey]);
+
+ALTER TABLE [ClearingExecution].[FactPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPositions_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactPositions_DimDate] FOREIGN KEY ([TradeDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPositions_DimContractSpecification] FOREIGN KEY ([ContractSpecificationKey])  REFERENCES [Dimensions].[DimContractSpecification]([ContractSpecificationKey]);
+
+ALTER TABLE [ClearingExecution].[FactPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPositions_DimTradingMethod] FOREIGN KEY ([TradingMethodKey])  REFERENCES [Dimensions].[DimTradingMethod]([TradingMethodKey]);
+
+ALTER TABLE [ClearingExecution].[FactPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPositions_DimSegregatedFund] FOREIGN KEY ([SegregatedFundKey])  REFERENCES [Dimensions].[DimSegregatedFund]([SegregatedFundKey]);
+
+ALTER TABLE [ClearingExecution].[FactPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPositions_DimCarryingBroker] FOREIGN KEY ([CarryingBrokerKey])  REFERENCES [Dimensions].[DimCarryingBroker]([CarryingBrokerKey]);
+
+ALTER TABLE [ClearingExecution].[FactPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPositions_DimPrice] FOREIGN KEY ([PriceKey])  REFERENCES [Dimensions].[DimPrice]([PriceKey]);
+
+ALTER TABLE [ClearingExecution].[FactPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPositions_DimTradeInfo] FOREIGN KEY ([TradeInfoKey])  REFERENCES [Dimensions].[DimTradeInfo]([TradeInfoKey]);
+
+ALTER TABLE [ClearingExecution].[FactPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPositions_DimPositionInfo] FOREIGN KEY ([PositionInfoKey])  REFERENCES [Dimensions].[DimPositionInfo]([PositionInfoKey]);
+
+ALTER TABLE [ClearingExecution].[FactPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPositions_DimOmnibusRegeneration] FOREIGN KEY ([OmnibusRegenerationKey])  REFERENCES [Dimensions].[DimOmnibusRegeneration]([OmnibusRegenerationKey]);
+
+ALTER TABLE [ClearingExecution].[FactPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPositions_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [ClearingExecution].[FactPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPositions_DimExchange] FOREIGN KEY ([ExchangeKey])  REFERENCES [Dimensions].[DimExchange]([ExchangeKey]);
+
+ALTER TABLE [ClearingExecution].[FactPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPositions_DimGLPosting] FOREIGN KEY ([GLPostingKey])  REFERENCES [Dimensions].[DimGLPosting]([GLPostingKey]);
+
+ALTER TABLE [ClearingExecution].[FactPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPositions_DimBookingSystemAccount] FOREIGN KEY ([ClearingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPositions_DimProduct] FOREIGN KEY ([ContractKey])  REFERENCES [Dimensions].[DimProduct]([ProductKey]);
+
+ALTER TABLE [ClearingExecution].[FactPositions]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactPositions_DimBookingSystemAccount] FOREIGN KEY ([MarginAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactionDetails]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactionDetails_DimDate] FOREIGN KEY ([TradeDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactionDetails]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactTradeTransactionDetails_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactionDetails]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactionDetails_DimFeeSchedule] FOREIGN KEY ([FeeScheduleKey])  REFERENCES [Dimensions].[DimFeeSchedule]([FeeScheduleKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactionDetails]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactionDetails_DimTradeTransactionType] FOREIGN KEY ([TradeTransactionTypeKey])  REFERENCES [Dimensions].[DimTradeTransactionType]([TradeTransactionTypeKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactionDetails]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactionDetails_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactionDetails]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactionDetails_DimExchange] FOREIGN KEY ([ExchangeKey])  REFERENCES [Dimensions].[DimExchange]([ExchangeKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactionDetails]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactionDetails_DimContractSpecification] FOREIGN KEY ([ContractSpecificationKey])  REFERENCES [Dimensions].[DimContractSpecification]([ContractSpecificationKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactionDetails]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactionDetails_DimCarryingBroker] FOREIGN KEY ([CarryingBrokerKey])  REFERENCES [Dimensions].[DimCarryingBroker]([CarryingBrokerKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactionDetails]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactionDetails_DimSegregatedFund] FOREIGN KEY ([SegregatedFundKey])  REFERENCES [Dimensions].[DimSegregatedFund]([SegregatedFundKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactionDetails]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactionDetails_DimGLPosting] FOREIGN KEY ([GLPostingKey])  REFERENCES [Dimensions].[DimGLPosting]([GLPostingKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactionDetails]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactTradeTransactionDetails_DimGLPosting] FOREIGN KEY ([GLPostingExpenseKey])  REFERENCES [Dimensions].[DimGLPosting]([GLPostingKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactionDetails]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactionDetails_DimBookingSystemAccount] FOREIGN KEY ([TradingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactionDetails]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactionDetails_DimProduct] FOREIGN KEY ([ContractKey])  REFERENCES [Dimensions].[DimProduct]([ProductKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactions_DimDate] FOREIGN KEY ([TradeDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactTradeTransactions_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactions_DimTradeTransactionType] FOREIGN KEY ([TradeTransactionTypeKey])  REFERENCES [Dimensions].[DimTradeTransactionType]([TradeTransactionTypeKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactions_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactions_DimExchange] FOREIGN KEY ([ExchangeKey])  REFERENCES [Dimensions].[DimExchange]([ExchangeKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactions_DimContractSpecification] FOREIGN KEY ([ContractSpecificationKey])  REFERENCES [Dimensions].[DimContractSpecification]([ContractSpecificationKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactions_DimTradingMethod] FOREIGN KEY ([TradingMethodKey])  REFERENCES [Dimensions].[DimTradingMethod]([TradingMethodKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactions_DimCarryingBroker] FOREIGN KEY ([CarryingBrokerKey])  REFERENCES [Dimensions].[DimCarryingBroker]([CarryingBrokerKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactions_DimParty] FOREIGN KEY ([ExecutingFirmPartyKey])  REFERENCES [Dimensions].[DimParty]([PartyKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactTradeTransactions_DimParty] FOREIGN KEY ([ExecutingBrokerPartyKey])  REFERENCES [Dimensions].[DimParty]([PartyKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactions_DimPrice] FOREIGN KEY ([PriceKey])  REFERENCES [Dimensions].[DimPrice]([PriceKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactions_DimExchangeMemberStatus] FOREIGN KEY ([ExchangeMemberStatusKey])  REFERENCES [Dimensions].[DimExchangeMemberStatus]([ExchangeMemberStatusKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactions_DimTradeInfo] FOREIGN KEY ([TradeInfoKey])  REFERENCES [Dimensions].[DimTradeInfo]([TradeInfoKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK3_FactTradeTransactions_DimParty] FOREIGN KEY ([BookerPartyKey])  REFERENCES [Dimensions].[DimParty]([PartyKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactions_DimBookingSystemAccount] FOREIGN KEY ([TradingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeTransactions_DimProduct] FOREIGN KEY ([ContractKey])  REFERENCES [Dimensions].[DimProduct]([ProductKey]);
+
+ALTER TABLE [ClearingExecution].[FactTradeTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactTradeTransactions_DimBookingSystemAccount] FOREIGN KEY ([MarginAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingFundBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingFundBalances_DimDate] FOREIGN KEY ([CalendarDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingFundBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactClearingFundBalances_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingFundBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingFundBalances_DimSegregatedFund] FOREIGN KEY ([SegregatedFundKey])  REFERENCES [Dimensions].[DimSegregatedFund]([SegregatedFundKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingFundBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingFundBalances_DimSourceProvider] FOREIGN KEY ([SourceProviderKey])  REFERENCES [Dimensions].[DimSourceProvider]([SourceProviderKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingFundBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingFundBalances_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingFundBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingFundBalances_DimBookingSystemAccount] FOREIGN KEY ([ClearingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingFundBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactClearingFundBalances_DimBookingSystemAccount] FOREIGN KEY ([MarginAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactClearingFundBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactClearingFundBalances_DimAccountStatus] FOREIGN KEY ([ClearingAccountStatusKey])  REFERENCES [Dimensions].[DimAccountStatus]([AccountStatusKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginedBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginedBalances_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginedBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginedBalances_DimSegregatedFund] FOREIGN KEY ([SegregatedFundKey])  REFERENCES [Dimensions].[DimSegregatedFund]([SegregatedFundKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginedBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginedBalances_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginedBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginedBalances_DimMarginAccountInfo] FOREIGN KEY ([MarginAccountInfoKey])  REFERENCES [Dimensions].[DimMarginAccountInfo]([MarginAccountInfoKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginedBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginedBalances_DimBookingSystemAccount] FOREIGN KEY ([MarginAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginedBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactMarginedBalances_DimBookingSystemAccount] FOREIGN KEY ([CashAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ClearingExecution].[FactMarginedBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactMarginedBalances_DimAccountStatus] FOREIGN KEY ([MarginAccountStatusKey])  REFERENCES [Dimensions].[DimAccountStatus]([AccountStatusKey]);

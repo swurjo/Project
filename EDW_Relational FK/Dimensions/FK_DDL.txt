@@ -1,0 +1,584 @@
+ALTER TABLE Dimensions.DimAccountManager
+    WITH NOCHECK ADD CONSTRAINT FK1_DimAccountManager_DimCountry FOREIGN KEY (NationalityCountryKey) REFERENCES Dimensions.DimCountry(CountryKey);
+GO;
+
+ALTER TABLE Dimensions.DimAccountManager
+    NOCHECK CONSTRAINT FK1_DimAccountManager_DimCountry;
+GO;
+
+ALTER TABLE Dimensions.DimAccountManager
+    WITH NOCHECK ADD CONSTRAINT FK1_DimAccountManager_DimDate FOREIGN KEY (FirstAccountOpenDate)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimAccountManager
+    NOCHECK CONSTRAINT FK1_DimAccountManager_DimDate;
+GO;
+
+
+ALTER TABLE Dimensions.DimAccountManager
+    WITH NOCHECK ADD CONSTRAINT FK1_DimAccountManager_DimDepartment FOREIGN KEY (HomeDepartmentKey)  REFERENCES Dimensions.DimDepartment(DepartmentKey);
+GO;
+
+ALTER TABLE Dimensions.DimAccountManager
+    NOCHECK CONSTRAINT FK1_DimAccountManager_DimDepartment;
+GO;
+
+
+ALTER TABLE Dimensions.DimAccountManager 
+    WITH NOCHECK ADD CONSTRAINT FK2_DimAccountManager_DimCountry FOREIGN KEY (DomicileCountryKey)  REFERENCES Dimensions.DimCountry(CountryKey);
+GO;
+
+ALTER TABLE Dimensions.DimAccountManager
+    NOCHECK CONSTRAINT FK2_DimAccountManager_DimCountry;
+GO;
+
+
+ALTER TABLE Dimensions.DimAccountManager
+    WITH NOCHECK ADD CONSTRAINT FK2_DimAccountManager_DimDate FOREIGN KEY (FirstAccountTradeDate)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimAccountManager
+    NOCHECK CONSTRAINT FK2_DimAccountManager_DimDate;
+GO;
+
+
+ALTER TABLE Dimensions.DimAccountManager
+    WITH NOCHECK ADD CONSTRAINT FK3_DimAccountManager_DimDate FOREIGN KEY (LastAccountTradeDate)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimAccountManager
+    NOCHECK CONSTRAINT FK3_DimAccountManager_DimDate;
+GO;
+
+
+ALTER TABLE Dimensions.DimAccountManager
+    WITH NOCHECK ADD CONSTRAINT FK4_DimAccountManager_DimDate FOREIGN KEY (LastAccountTransactionDate)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimAccountManager
+    NOCHECK CONSTRAINT FK4_DimAccountManager_DimDate;
+GO;
+
+
+ALTER TABLE Dimensions.DimAccountManager
+    WITH NOCHECK ADD CONSTRAINT FK5_DimAccountManager_DimDate FOREIGN KEY (LegalEntityIDExpirationDate)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimAccountManager
+    NOCHECK CONSTRAINT FK5_DimAccountManager_DimDate;
+GO;
+
+
+ALTER TABLE Dimensions.DimAccountManager
+    WITH NOCHECK ADD CONSTRAINT FK6_DimAccountManager_DimDate FOREIGN KEY (BirthDateKey)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimAccountManager
+    NOCHECK CONSTRAINT FK6_DimAccountManager_DimDate;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimAudit
+    WITH NOCHECK ADD CONSTRAINT FK1_DimAudit_Latest_Business_Date_By_Source_Provider FOREIGN KEY (SourceProvider)  REFERENCES ETLUTIL.Latest_Business_Date_By_Source_Provider(SourceProvider);
+GO;
+
+ALTER TABLE Dimensions.DimAudit
+    NOCHECK CONSTRAINT FK1_DimAudit_Latest_Business_Date_By_Source_Provider;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK1_DimBookingSystemAccount_DimAccountManager FOREIGN KEY (AccountManagerKey)  REFERENCES Dimensions.DimAccountManager(AccountManagerKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK1_DimBookingSystemAccount_DimAccountManager;
+GO;
+
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK1_DimBookingSystemAccount_DimAccountStatus FOREIGN KEY (AccountStatusKey)  REFERENCES Dimensions.DimAccountStatus(AccountStatusKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK1_DimBookingSystemAccount_DimAccountStatus;
+GO;
+
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK1_DimBookingSystemAccount_DimBookingSystemAccount FOREIGN KEY (MasterAccountKey)  REFERENCES Dimensions.DimBookingSystemAccount(BookingSystemAccountKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK1_DimBookingSystemAccount_DimBookingSystemAccount;
+GO;
+
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK1_DimBookingSystemAccount_DimBrokerGroup FOREIGN KEY (BrokerGroupKey) REFERENCES Dimensions.DimBrokerGroup(BrokerGroupKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK1_DimBookingSystemAccount_DimBrokerGroup;
+GO;
+
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK1_DimBookingSystemAccount_DimBusinessUnit FOREIGN KEY (HomeBusinessUnitKey)  REFERENCES Dimensions.DimBusinessUnit(BusinessUnitKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK1_DimBookingSystemAccount_DimBusinessUnit;
+GO;
+
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK1_DimBookingSystemAccount_DimClient FOREIGN KEY (ClientKey)  REFERENCES Dimensions.DimClient(ClientKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK1_DimBookingSystemAccount_DimClient;
+GO;
+
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK1_DimBookingSystemAccount_DimCountry FOREIGN KEY (DomicileCountryKey)  REFERENCES Dimensions.DimCountry(CountryKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK1_DimBookingSystemAccount_DimCountry;
+GO;
+
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK1_DimBookingSystemAccount_DimCurrency FOREIGN KEY (MinimumAccountChargeCurrencyKey)  REFERENCES Dimensions.DimCurrency(CurrencyKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK1_DimBookingSystemAccount_DimCurrency;
+GO;
+
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK1_DimBookingSystemAccount_DimCustomer FOREIGN KEY (AccountOwnerKey)  REFERENCES Dimensions.DimCustomer(CustomerKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK1_DimBookingSystemAccount_DimCustomer;
+GO;
+
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK1_DimBookingSystemAccount_DimDate FOREIGN KEY (AccountOpenDateKey)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK1_DimBookingSystemAccount_DimDate;
+GO;
+
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK1_DimBookingSystemAccount_DimDepartment FOREIGN KEY (DepartmentKey)  REFERENCES Dimensions.DimDepartment(DepartmentKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK1_DimBookingSystemAccount_DimDepartment;
+GO;
+	
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK1_DimBookingSystemAccount_DimFirm FOREIGN KEY (CounterpartyFirmKey)  REFERENCES Dimensions.DimFirm(FirmKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK1_DimBookingSystemAccount_DimFirm;
+GO;
+
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK1_DimBookingSystemAccount_DimOffice FOREIGN KEY (OfficeKey)  REFERENCES Dimensions.DimOffice(OfficeKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK1_DimBookingSystemAccount_DimOffice;
+GO;
+
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK1_DimBookingSystemAccount_DimParty FOREIGN KEY (OpeningPartyKey)  REFERENCES Dimensions.DimParty(PartyKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK1_DimBookingSystemAccount_DimParty;
+GO;
+
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK1_DimBookingSystemAccount_DimSalesEntity FOREIGN KEY (SalesEntityKey) REFERENCES Dimensions.DimSalesEntity(SalesEntityKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK1_DimBookingSystemAccount_DimSalesEntity;
+GO;
+
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK2_DimBookingSystemAccount_DimBusinessUnit FOREIGN KEY (BusinessUnitKey)  REFERENCES Dimensions.DimBusinessUnit(BusinessUnitKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK2_DimBookingSystemAccount_DimBusinessUnit;
+GO;
+
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK2_DimBookingSystemAccount_DimCustomer FOREIGN KEY (AccountBeneficiaryKey)  REFERENCES Dimensions.DimCustomer(CustomerKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK2_DimBookingSystemAccount_DimCustomer;
+GO;
+
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK2_DimBookingSystemAccount_DimDate FOREIGN KEY (BirthDateKey)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK2_DimBookingSystemAccount_DimDate;
+GO;
+
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    WITH NOCHECK ADD CONSTRAINT FK3_DimBookingSystemAccount_DimCustomer FOREIGN KEY (PrimaryAccountHolderKey)  REFERENCES Dimensions.DimCustomer(CustomerKey);
+GO;
+
+ALTER TABLE Dimensions.DimBookingSystemAccount
+    NOCHECK CONSTRAINT FK3_DimBookingSystemAccount_DimCustomer;
+GO;
+
+
+ALTER TABLE Dimensions.DimBusinessUnit
+    WITH NOCHECK ADD CONSTRAINT FK1_DimBusinessUnit_DimCurrency FOREIGN KEY (BaseCurrencyKey) REFERENCES Dimensions.DimCurrency(CurrencyKey);
+GO;
+
+ALTER TABLE Dimensions.DimBusinessUnit
+    NOCHECK CONSTRAINT FK1_DimBusinessUnit_DimCurrency;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimClient
+    WITH NOCHECK ADD CONSTRAINT FK1_DimClient_DimClient FOREIGN KEY (FirmClientKey)  REFERENCES Dimensions.DimClient(ClientKey);
+GO;
+
+ALTER TABLE Dimensions.DimClient
+    NOCHECK CONSTRAINT FK1_DimClient_DimClient;
+GO;
+
+
+ALTER TABLE Dimensions.DimClient
+    WITH NOCHECK ADD CONSTRAINT FK1_DimClient_DimDate FOREIGN KEY (ActivateDateKey)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimClient
+    NOCHECK CONSTRAINT FK1_DimClient_DimDate;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimClientAccount
+    WITH NOCHECK ADD CONSTRAINT FK1_DimClientAccount_DimDate FOREIGN KEY (ActivateDateKey)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimClientAccount
+    NOCHECK CONSTRAINT FK1_DimClientAccount_DimDate;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimContractSpecification
+    WITH NOCHECK ADD CONSTRAINT FK1_DimContractSpecification_DimDate FOREIGN KEY (FirstNoticeDateKey)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimContractSpecification
+    NOCHECK CONSTRAINT FK1_DimContractSpecification_DimDate;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimContractSpecification
+    WITH NOCHECK ADD CONSTRAINT FK2_DimContractSpecification_DimDate FOREIGN KEY (LastNoticeDateKey)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimContractSpecification
+    NOCHECK CONSTRAINT FK2_DimContractSpecification_DimDate;
+GO;
+
+
+ALTER TABLE Dimensions.DimContractSpecification
+    WITH NOCHECK ADD CONSTRAINT FK3_DimContractSpecification_DimDate FOREIGN KEY (FirstDeliveryDateKey)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimContractSpecification
+    NOCHECK CONSTRAINT FK3_DimContractSpecification_DimDate;
+GO;
+
+
+ALTER TABLE Dimensions.DimContractSpecification
+    WITH NOCHECK ADD CONSTRAINT FK4_DimContractSpecification_DimDate FOREIGN KEY (LastDeliveryDateKey)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimContractSpecification
+    NOCHECK CONSTRAINT FK4_DimContractSpecification_DimDate;
+GO;
+
+
+ALTER TABLE Dimensions.DimContractSpecification
+    WITH NOCHECK ADD CONSTRAINT FK5_DimContractSpecification_DimDate FOREIGN KEY (OptionExpirationDateKey)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimContractSpecification
+    NOCHECK CONSTRAINT FK5_DimContractSpecification_DimDate;
+GO;
+
+
+ALTER TABLE Dimensions.DimContractSpecification
+    WITH NOCHECK ADD CONSTRAINT FK6_DimContractSpecification_DimDate FOREIGN KEY (LastTradeDateKey)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimContractSpecification
+    NOCHECK CONSTRAINT FK6_DimContractSpecification_DimDate;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimCustomer
+    WITH NOCHECK ADD CONSTRAINT FK1_DimCustomer_DimCountry FOREIGN KEY (NationalityCountryKey)  REFERENCES Dimensions.DimCountry(CountryKey);
+GO;
+
+ALTER TABLE Dimensions.DimCustomer
+    NOCHECK CONSTRAINT FK1_DimCustomer_DimCountry;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimCustomer
+    WITH NOCHECK ADD CONSTRAINT FK2_DimCustomer_DimCountry FOREIGN KEY (DomicileCountryKey)  REFERENCES Dimensions.DimCountry(CountryKey);
+GO;
+
+ALTER TABLE Dimensions.DimCustomer
+    NOCHECK CONSTRAINT FK2_DimCustomer_DimCountry;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimEmployee
+    WITH NOCHECK ADD CONSTRAINT FK1_DimEmployee_DimDepartment FOREIGN KEY (DepartmentKey)  REFERENCES Dimensions.DimDepartment(DepartmentKey);
+GO;
+
+ALTER TABLE Dimensions.DimEmployee
+    NOCHECK CONSTRAINT FK1_DimEmployee_DimDepartment;
+GO;
+
+
+ALTER TABLE Dimensions.DimEmployee
+    WITH NOCHECK ADD CONSTRAINT FK1_DimEmployee_DimEmployee FOREIGN KEY (ManagerKey)  REFERENCES Dimensions.DimEmployee(EmployeeKey);
+GO;
+
+ALTER TABLE Dimensions.DimEmployee
+    NOCHECK CONSTRAINT FK1_DimEmployee_DimEmployee;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimFirm
+    WITH NOCHECK ADD CONSTRAINT FK1_DimFirm_DimCountry FOREIGN KEY (CountryKey)  REFERENCES Dimensions.DimCountry(CountryKey);
+GO;
+
+ALTER TABLE Dimensions.DimFirm
+    NOCHECK CONSTRAINT FK1_DimFirm_DimCountry;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimMarketParticipant
+    WITH NOCHECK ADD CONSTRAINT FK1_DimMarketParticipant_DimCountry FOREIGN KEY (NationalityCountryKey)  REFERENCES Dimensions.DimCountry(CountryKey);
+GO;
+
+ALTER TABLE Dimensions.DimMarketParticipant
+    NOCHECK CONSTRAINT FK1_DimMarketParticipant_DimCountry;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimOffice
+    WITH NOCHECK ADD CONSTRAINT FK1_DimOffice_DimDate FOREIGN KEY (OfficeOpenDateKey)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimOffice
+    NOCHECK CONSTRAINT FK1_DimOffice_DimDate;
+GO;
+
+
+ALTER TABLE Dimensions.DimOffice
+    WITH NOCHECK ADD CONSTRAINT FK1_DimOffice_DimDepartment FOREIGN KEY (ParentEntityDepartmentKey)  REFERENCES Dimensions.DimDepartment(DepartmentKey);
+GO;
+
+ALTER TABLE Dimensions.DimOffice
+    NOCHECK CONSTRAINT FK1_DimOffice_DimDepartment;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimOffice
+    WITH NOCHECK ADD CONSTRAINT FK2_DimOffice_DimDate FOREIGN KEY (OfficeCloseDateKey)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimOffice
+    NOCHECK CONSTRAINT FK2_DimOffice_DimDate;
+GO;
+
+
+ALTER TABLE Dimensions.DimOffice
+    WITH NOCHECK ADD CONSTRAINT FK2_DimOffice_DimDepartment FOREIGN KEY (DepartmentKey)  REFERENCES Dimensions.DimDepartment(DepartmentKey);
+GO;
+
+ALTER TABLE Dimensions.DimOffice
+    NOCHECK CONSTRAINT FK2_DimOffice_DimDepartment;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimPayee
+    WITH NOCHECK ADD CONSTRAINT FK1_DimPayee_DimCountry FOREIGN KEY (CountryKey)  REFERENCES Dimensions.DimCountry(CountryKey);
+GO;
+
+ALTER TABLE Dimensions.DimPayee
+    NOCHECK CONSTRAINT FK1_DimPayee_DimCountry;
+GO;
+
+
+ALTER TABLE Dimensions.DimPayee
+    WITH NOCHECK ADD CONSTRAINT FK1_DimPayee_DimCurrency FOREIGN KEY (PaymentCurrencyKey)  REFERENCES Dimensions.DimCurrency(CurrencyKey);
+GO;
+
+ALTER TABLE Dimensions.DimPayee
+    NOCHECK CONSTRAINT FK1_DimPayee_DimCurrency;
+GO;
+
+
+ALTER TABLE Dimensions.DimPayee
+    WITH NOCHECK ADD CONSTRAINT FK1_DimPayee_DimDepartment FOREIGN KEY (DepartmentKey)  REFERENCES Dimensions.DimDepartment(DepartmentKey);
+GO;
+
+ALTER TABLE Dimensions.DimPayee
+    NOCHECK CONSTRAINT FK1_DimPayee_DimDepartment;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimProduct
+    WITH NOCHECK ADD CONSTRAINT FK1_DimProduct_DimCurrency  FOREIGN KEY (CounterCurrencyKey)  REFERENCES Dimensions.DimCurrency(CurrencyKey);
+GO;
+
+ALTER TABLE Dimensions.DimProduct
+    NOCHECK CONSTRAINT FK1_DimProduct_DimCurrency;
+GO;
+
+
+ALTER TABLE Dimensions.DimProduct
+    WITH NOCHECK ADD CONSTRAINT FK1_DimProduct_DimDate FOREIGN KEY (ContractDelistDateKey)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimProduct
+    NOCHECK CONSTRAINT FK1_DimProduct_DimDate;
+GO;
+
+
+ALTER TABLE Dimensions.DimProduct
+    WITH NOCHECK ADD CONSTRAINT FK1_DimProduct_DimExchange FOREIGN KEY (ContractExchangeKey)  REFERENCES Dimensions.DimExchange(ExchangeKey);
+GO;
+
+ALTER TABLE Dimensions.DimProduct
+    NOCHECK CONSTRAINT FK1_DimProduct_DimExchange;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimProduct
+    WITH NOCHECK ADD CONSTRAINT FK2_DimProduct_DimCurrency FOREIGN KEY (ContractCurrencyKey)  REFERENCES Dimensions.DimCurrency(CurrencyKey);
+GO;
+
+ALTER TABLE Dimensions.DimProduct
+    NOCHECK CONSTRAINT FK2_DimProduct_DimCurrency;
+GO;
+
+
+ALTER TABLE Dimensions.DimProduct
+    WITH NOCHECK ADD CONSTRAINT FK2_DimProduct_DimDate FOREIGN KEY (ProductCreateDateKey)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimProduct
+    NOCHECK CONSTRAINT FK2_DimProduct_DimDate;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimSalesEntity
+    WITH NOCHECK ADD CONSTRAINT FK1_DimSalesEntity_DimBusinessUnit FOREIGN KEY (HomeBusinessUnitKey)  REFERENCES Dimensions.DimBusinessUnit(BusinessUnitKey);
+GO;
+
+ALTER TABLE Dimensions.DimSalesEntity
+    NOCHECK CONSTRAINT FK1_DimSalesEntity_DimBusinessUnit;
+GO;
+
+
+ALTER TABLE Dimensions.DimSalesEntity
+    WITH NOCHECK ADD CONSTRAINT FK2_DimSalesEntity_DimBusinessUnit FOREIGN KEY (BusinessUnitKey)  REFERENCES Dimensions.DimBusinessUnit(BusinessUnitKey);
+GO;
+
+ALTER TABLE Dimensions.DimSalesEntity
+    NOCHECK CONSTRAINT FK2_DimSalesEntity_DimBusinessUnit;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimSegregatedFund
+    WITH NOCHECK ADD CONSTRAINT FK1_DimSegregatedFund_DimBusinessUnit FOREIGN KEY (BusinessUnitKey)  REFERENCES Dimensions.DimBusinessUnit(BusinessUnitKey);
+GO;
+
+ALTER TABLE Dimensions.DimSegregatedFund
+    NOCHECK CONSTRAINT FK1_DimSegregatedFund_DimBusinessUnit;
+GO;
+
+
+ALTER TABLE Dimensions.DimSegregatedFund
+    WITH NOCHECK ADD CONSTRAINT FK1_DimSegregatedFund_DimCurrency FOREIGN KEY (CurrencyKey)  REFERENCES Dimensions.DimCurrency(CurrencyKey);
+GO;
+
+ALTER TABLE Dimensions.DimSegregatedFund
+    NOCHECK CONSTRAINT FK1_DimSegregatedFund_DimCurrency;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimSourceProvider
+    WITH NOCHECK ADD CONSTRAINT FK1_DimSourceProvider_Latest_Business_Date_By_Source_Provider FOREIGN KEY (SourceProvider)  REFERENCES ETLUTIL.Latest_Business_Date_By_Source_Provider(SourceProvider);
+GO;
+
+ALTER TABLE Dimensions.DimSourceProvider
+    NOCHECK CONSTRAINT FK1_DimSourceProvider_Latest_Business_Date_By_Source_Provider;
+GO;
+
+
+
+ALTER TABLE Dimensions.DimWorker
+    WITH NOCHECK ADD CONSTRAINT FK1_DimWorker_DimDate FOREIGN KEY (WorkerStartDateKey)  REFERENCES Dimensions.DimDate(DateKey);
+GO;
+
+ALTER TABLE Dimensions.DimWorker
+    NOCHECK CONSTRAINT FK1_DimWorker_DimDate;
+GO;

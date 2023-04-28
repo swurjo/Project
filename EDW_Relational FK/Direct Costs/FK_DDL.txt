@@ -1,0 +1,17 @@
+ALTER TABLE [DirectCosts].[FactAssignedLicenseSnapshots]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactAssignedLicenseSnapshots_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [DirectCosts].[FactAssignedLicenseSnapshots]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactAssignedLicenseSnapshots_DimLicensedUser] FOREIGN KEY ([LicensedUserKey])  REFERENCES [Dimensions].[DimLicensedUser]([LicensedUserKey]);
+
+ALTER TABLE [DirectCosts].[FactAssignedLicenseSnapshots]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactAssignedLicenseSnapshots_DimBusinessUnit] FOREIGN KEY ([BusinessUnitKey])  REFERENCES [Dimensions].[DimBusinessUnit]([BusinessUnitKey]);
+
+ALTER TABLE [DirectCosts].[FactAssignedLicenseSnapshots]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactAssignedLicenseSnapshots_DimDepartment] FOREIGN KEY ([DepartmentKey])  REFERENCES [Dimensions].[DimDepartment]([DepartmentKey]);
+
+ALTER TABLE [DirectCosts].[FactAssignedLicenseSnapshots]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactAssignedLicenseSnapshots_DimCurrency] FOREIGN KEY ([CurrencyKey])  REFERENCES [Dimensions].[DimCurrency]([CurrencyKey]);
+
+ALTER TABLE [DirectCosts].[FactAssignedLicenseSnapshots]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactAssignedLicenseSnapshots_DimAssignedLicenseInfo] FOREIGN KEY ([AssignedLicenseInfoKey])  REFERENCES [Dimensions].[DimAssignedLicenseInfo]([AssignedLicenseInfoKey]);

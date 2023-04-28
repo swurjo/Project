@@ -1,0 +1,260 @@
+ALTER TABLE [ExecutionOnly].[FactExecutionAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactExecutionAccounts_DimSalesEntity] FOREIGN KEY ([CurrentSalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [ExecutionOnly].[FactExecutionAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactExecutionAccounts_DimDepartment] FOREIGN KEY ([CurrentDepartmentKey])  REFERENCES [Dimensions].[DimDepartment]([DepartmentKey]);
+
+ALTER TABLE [ExecutionOnly].[FactExecutionAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactExecutionAccounts_DimDate] FOREIGN KEY ([OpenDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactExecutionAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactExecutionAccounts_DimDate] FOREIGN KEY ([ReopenDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactExecutionAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK3_FactExecutionAccounts_DimDate] FOREIGN KEY ([FirstFeeChargedDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactExecutionAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK4_FactExecutionAccounts_DimDate] FOREIGN KEY ([FirstTradeDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactExecutionAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK5_FactExecutionAccounts_DimDate] FOREIGN KEY ([LastFeeChargedDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactExecutionAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK6_FactExecutionAccounts_DimDate] FOREIGN KEY ([LastTradeDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactExecutionAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK7_FactExecutionAccounts_DimDate] FOREIGN KEY ([LastReclassDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactExecutionAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK8_FactExecutionAccounts_DimDate] FOREIGN KEY ([DormancyDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactExecutionAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK9_FactExecutionAccounts_DimDate] FOREIGN KEY ([CloseDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactExecutionAccounts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactExecutionAccounts_DimAccountStatus] FOREIGN KEY ([ExecutionAccountStatusKey])  REFERENCES [Dimensions].[DimAccountStatus]([AccountStatusKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutFeeAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutFeeAdjustments_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutFeeAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutFeeAdjustments_DimSourceProvider] FOREIGN KEY ([SourceProviderKey])  REFERENCES [Dimensions].[DimSourceProvider]([SourceProviderKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutFeeAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutFeeAdjustments_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutFeeAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutFeeAdjustments_DimExchange] FOREIGN KEY ([ExchangeKey])  REFERENCES [Dimensions].[DimExchange]([ExchangeKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutFeeAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutFeeAdjustments_DimCurrency] FOREIGN KEY ([CurrencyKey])  REFERENCES [Dimensions].[DimCurrency]([CurrencyKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutFeeAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutFeeAdjustments_DimParty] FOREIGN KEY ([BookerPartyKey])  REFERENCES [Dimensions].[DimParty]([PartyKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutFeeAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutFeeAdjustments_DimAdjustmentInfo] FOREIGN KEY ([AdjustmentInfoKey])  REFERENCES [Dimensions].[DimAdjustmentInfo]([AdjustmentInfoKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutFeeAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutFeeAdjustments_DimBookingSystemAccount] FOREIGN KEY ([TradingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutFeeAdjustments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutFeeAdjustments_DimProduct] FOREIGN KEY ([ContractKey])  REFERENCES [Dimensions].[DimProduct]([ProductKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceBridge]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoiceBridge_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceBridge]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoiceBridge_DimInvoiceInfo] FOREIGN KEY ([InvoiceInfoKey])  REFERENCES [Dimensions].[DimInvoiceInfo]([InvoiceInfoKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceBridge]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoiceBridge_DimCurrency] FOREIGN KEY ([CurrencyKey])  REFERENCES [Dimensions].[DimCurrency]([CurrencyKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceBridge]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactGiveOutInvoiceBridge_DimDate] FOREIGN KEY ([InvoiceDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceBridge]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactGiveOutInvoiceBridge_DimBookingSystemAccount] FOREIGN KEY ([BillingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceBridge]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoiceBridge_DimBookingSystemAccount] FOREIGN KEY ([ExecutionAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoicePayments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoicePayments_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoicePayments]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactGiveOutInvoicePayments_DimDate] FOREIGN KEY ([InvoiceDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoicePayments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoicePayments_DimInvoiceInfo] FOREIGN KEY ([InvoiceInfoKey])  REFERENCES [Dimensions].[DimInvoiceInfo]([InvoiceInfoKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoicePayments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoicePayments_DimCurrency] FOREIGN KEY ([CurrencyKey])  REFERENCES [Dimensions].[DimCurrency]([CurrencyKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoicePayments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoicePayments_DimGiveOutInvoicePaymentInfo] FOREIGN KEY ([GiveOutInvoicePaymentInfoKey])  REFERENCES [Dimensions].[DimGiveOutInvoicePaymentInfo]([GiveOutInvoicePaymentInfoKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoicePayments]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoicePayments_DimBookingSystemAccount] FOREIGN KEY ([BillingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoices]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoices_DimInvoiceInfo] FOREIGN KEY ([InvoiceInfoKey])  REFERENCES [Dimensions].[DimInvoiceInfo]([InvoiceInfoKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoices]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoices_DimCurrency] FOREIGN KEY ([CurrencyKey])  REFERENCES [Dimensions].[DimCurrency]([CurrencyKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoices]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoices_DimDate] FOREIGN KEY ([InvoiceDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoices]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactGiveOutInvoices_DimDate] FOREIGN KEY ([CreationDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoices]
+    WITH NOCHECK ADD CONSTRAINT [FK3_FactGiveOutInvoices_DimDate] FOREIGN KEY ([FirstPaymentDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoices]
+    WITH NOCHECK ADD CONSTRAINT [FK4_FactGiveOutInvoices_DimDate] FOREIGN KEY ([LastPaymentDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoices]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoices_DimBookingSystemAccount] FOREIGN KEY ([ExecutionAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoices]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactGiveOutInvoices_DimBookingSystemAccount] FOREIGN KEY ([BillingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoices]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoices_DimFirm] FOREIGN KEY ([CounterpartyFirmKey])  REFERENCES [Dimensions].[DimFirm]([FirmKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoices]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoices_DimReceivableBalanceInfo] FOREIGN KEY ([InvoiceBalanceInfoKey])  REFERENCES [Dimensions].[DimReceivableBalanceInfo]([ReceivableBalanceInfoKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoiceTransactions_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoiceTransactions_DimContractSpecification] FOREIGN KEY ([ContractSpecificationKey])  REFERENCES [Dimensions].[DimContractSpecification]([ContractSpecificationKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoiceTransactions_DimPrice] FOREIGN KEY ([PriceKey])  REFERENCES [Dimensions].[DimPrice]([PriceKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoiceTransactions_DimCurrency] FOREIGN KEY ([CurrencyKey])  REFERENCES [Dimensions].[DimCurrency]([CurrencyKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoiceTransactions_DimInvoiceInfo] FOREIGN KEY ([InvoiceInfoKey])  REFERENCES [Dimensions].[DimInvoiceInfo]([InvoiceInfoKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactGiveOutInvoiceTransactions_DimDate] FOREIGN KEY ([InvoiceDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoiceTransactions_DimSourceProvider] FOREIGN KEY ([SourceProviderKey])  REFERENCES [Dimensions].[DimSourceProvider]([SourceProviderKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoiceTransactions_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoiceTransactions_DimExchange] FOREIGN KEY ([ExchangeKey])  REFERENCES [Dimensions].[DimExchange]([ExchangeKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoiceTransactions_DimBookingSystemAccount] FOREIGN KEY ([ExecutionAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoiceTransactions_DimProduct] FOREIGN KEY ([ContractKey])  REFERENCES [Dimensions].[DimProduct]([ProductKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoiceTransactions_DimGiveOutInfo] FOREIGN KEY ([GiveOutInvoiceTransactionInfoKey])  REFERENCES [Dimensions].[DimGiveOutInfo]([GiveOutInfoKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactGiveOutInvoiceTransactions_DimBookingSystemAccount] FOREIGN KEY ([BillingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOutInvoiceTransactions]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOutInvoiceTransactions_DimGiveOutInvoicePaymentInfo] FOREIGN KEY ([PaymentInfoKey])  REFERENCES [Dimensions].[DimGiveOutInvoicePaymentInfo]([GiveOutInvoicePaymentInfoKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOuts_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOuts_DimGiveOutInfo] FOREIGN KEY ([GiveOutInfoKey])  REFERENCES [Dimensions].[DimGiveOutInfo]([GiveOutInfoKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactGiveOuts_DimDate] FOREIGN KEY ([TradeDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK3_FactGiveOuts_DimDate] FOREIGN KEY ([InvoiceDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOuts_DimSourceProvider] FOREIGN KEY ([SourceProviderKey])  REFERENCES [Dimensions].[DimSourceProvider]([SourceProviderKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOuts_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOuts_DimExchange] FOREIGN KEY ([ExchangeKey])  REFERENCES [Dimensions].[DimExchange]([ExchangeKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOuts_DimTradingMethod] FOREIGN KEY ([TradingMethodKey])  REFERENCES [Dimensions].[DimTradingMethod]([TradingMethodKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOuts_DimContractSpecification] FOREIGN KEY ([ContractSpecificationKey])  REFERENCES [Dimensions].[DimContractSpecification]([ContractSpecificationKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOuts_DimCurrency] FOREIGN KEY ([CurrencyKey])  REFERENCES [Dimensions].[DimCurrency]([CurrencyKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOuts_DimPrice] FOREIGN KEY ([PriceKey])  REFERENCES [Dimensions].[DimPrice]([PriceKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOuts_DimInvoiceInfo] FOREIGN KEY ([InvoiceInfoKey])  REFERENCES [Dimensions].[DimInvoiceInfo]([InvoiceInfoKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOuts_DimBookingSystemAccount] FOREIGN KEY ([TradingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOuts_DimProduct] FOREIGN KEY ([ContractKey])  REFERENCES [Dimensions].[DimProduct]([ProductKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactGiveOuts_DimBookingSystemAccount] FOREIGN KEY ([BillingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOuts_DimFirm] FOREIGN KEY ([ExecutingFirmKey])  REFERENCES [Dimensions].[DimFirm]([FirmKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactGiveOuts_DimFirm] FOREIGN KEY ([ClearingFirmKey])  REFERENCES [Dimensions].[DimFirm]([FirmKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactGiveOuts_DimParty] FOREIGN KEY ([ClearingFirmPartyKey])  REFERENCES [Dimensions].[DimParty]([PartyKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactGiveOuts_DimParty] FOREIGN KEY ([ExecutingBrokerPartyKey])  REFERENCES [Dimensions].[DimParty]([PartyKey]);
+
+ALTER TABLE [ExecutionOnly].[FactGiveOuts]
+    WITH NOCHECK ADD CONSTRAINT [FK3_FactGiveOuts_DimParty] FOREIGN KEY ([BookerPartyKey])  REFERENCES [Dimensions].[DimParty]([PartyKey]);
+
+ALTER TABLE [ExecutionOnly].[FactReceivableBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactReceivableBalances_DimExchange] FOREIGN KEY ([ExchangeKey])  REFERENCES [Dimensions].[DimExchange]([ExchangeKey]);
+
+ALTER TABLE [ExecutionOnly].[FactReceivableBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactReceivableBalances_DimInvoiceInfo] FOREIGN KEY ([InvoiceInfoKey])  REFERENCES [Dimensions].[DimInvoiceInfo]([InvoiceInfoKey]);
+
+ALTER TABLE [ExecutionOnly].[FactReceivableBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactReceivableBalances_DimCurrency] FOREIGN KEY ([CurrencyKey])  REFERENCES [Dimensions].[DimCurrency]([CurrencyKey]);
+
+ALTER TABLE [ExecutionOnly].[FactReceivableBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactReceivableBalances_DimDate] FOREIGN KEY ([InvoiceDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactReceivableBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactReceivableBalances_DimSourceProvider] FOREIGN KEY ([SourceProviderKey])  REFERENCES [Dimensions].[DimSourceProvider]([SourceProviderKey]);
+
+ALTER TABLE [ExecutionOnly].[FactReceivableBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactReceivableBalances_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [ExecutionOnly].[FactReceivableBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactReceivableBalances_DimReceivableBalanceInfo] FOREIGN KEY ([ReceivableBalanceInfoKey])  REFERENCES [Dimensions].[DimReceivableBalanceInfo]([ReceivableBalanceInfoKey]);
+
+ALTER TABLE [ExecutionOnly].[FactReceivableBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactReceivableBalances_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [ExecutionOnly].[FactReceivableBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactReceivableBalances_DimBookingSystemAccount] FOREIGN KEY ([ExecutionAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [ExecutionOnly].[FactReceivableBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactReceivableBalances_DimBookingSystemAccount] FOREIGN KEY ([BillingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);

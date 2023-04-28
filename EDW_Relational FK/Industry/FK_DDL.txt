@@ -1,0 +1,14 @@
+ALTER TABLE [Industry].[FactFinancialReports]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactFinancialReports_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [Industry].[FactFinancialReports]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactFinancialReports_DimFinancialReportInfo] FOREIGN KEY ([FinancialReportInfoKey])  REFERENCES [Dimensions].[DimFinancialReportInfo]([FinancialReportInfoKey]);
+
+ALTER TABLE [Industry].[FactFinancialReports]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactFinancialReports_DimDate] FOREIGN KEY ([FilingDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [Industry].[FactFinancialReports]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactFinancialReports_DimFirm] FOREIGN KEY ([FirmKey])  REFERENCES [Dimensions].[DimFirm]([FirmKey]);
+
+ALTER TABLE [Industry].[FactFinancialReports]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactFinancialReports_DimSourceProvider] FOREIGN KEY ([SourceProviderKey])  REFERENCES [Dimensions].[DimSourceProvider]([SourceProviderKey]);

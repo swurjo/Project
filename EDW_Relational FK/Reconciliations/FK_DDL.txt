@@ -1,0 +1,14 @@
+ALTER TABLE [Reconciliations].[FactOpenInterest]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactOpenInterest_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [Reconciliations].[FactOpenInterest]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactOpenInterest_DimOpenInterestInfo] FOREIGN KEY ([OpenInterestInfoKey])  REFERENCES [Dimensions].[DimOpenInterestInfo]([OpenInterestInfoKey]);
+
+ALTER TABLE [Reconciliations].[FactOpenInterest]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactOpenInterest_DimExchange] FOREIGN KEY ([ExchangeKey])  REFERENCES [Dimensions].[DimExchange]([ExchangeKey]);
+
+ALTER TABLE [Reconciliations].[FactOpenInterest]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactOpenInterest_DimContractSpecification] FOREIGN KEY ([ContractSpecificationKey])  REFERENCES [Dimensions].[DimContractSpecification]([ContractSpecificationKey]);
+
+ALTER TABLE [Reconciliations].[FactOpenInterest]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactOpenInterest_DimProduct] FOREIGN KEY ([ContractKey])  REFERENCES [Dimensions].[DimProduct]([ProductKey]);

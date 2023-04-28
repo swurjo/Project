@@ -1,0 +1,47 @@
+ALTER TABLE [STP].[FactTradeAllocations]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeAllocations_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [STP].[FactTradeAllocations]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeAllocations_DimTime] FOREIGN KEY ([BusinessTimeKey])  REFERENCES [Dimensions].[DimTime]([TimeKey]);
+
+ALTER TABLE [STP].[FactTradeAllocations]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactTradeAllocations_DimDate] FOREIGN KEY ([TradeDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [STP].[FactTradeAllocations]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeAllocations_DimAllocationDestination] FOREIGN KEY ([AllocationDestinationKey])  REFERENCES [Dimensions].[DimAllocationDestination]([AllocationDestinationKey]);
+
+ALTER TABLE [STP].[FactTradeAllocations]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeAllocations_DimContractSpecification] FOREIGN KEY ([ContractSpecificationKey])  REFERENCES [Dimensions].[DimContractSpecification]([ContractSpecificationKey]);
+
+ALTER TABLE [STP].[FactTradeAllocations]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeAllocations_DimPrice] FOREIGN KEY ([PriceKey])  REFERENCES [Dimensions].[DimPrice]([PriceKey]);
+
+ALTER TABLE [STP].[FactTradeAllocations]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeAllocations_DimTradeInfo] FOREIGN KEY ([TradeInfoKey])  REFERENCES [Dimensions].[DimTradeInfo]([TradeInfoKey]);
+
+ALTER TABLE [STP].[FactTradeAllocations]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeAllocations_DimTradeAllocationInfo] FOREIGN KEY ([TradeAllocationInfoKey])  REFERENCES [Dimensions].[DimTradeAllocationInfo]([TradeAllocationInfoKey]);
+
+ALTER TABLE [STP].[FactTradeAllocations]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeAllocations_DimClipSize] FOREIGN KEY ([ClipSizeKey])  REFERENCES [Dimensions].[DimClipSize]([ClipSizeKey]);
+
+ALTER TABLE [STP].[FactTradeAllocations]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeAllocations_DimSourceProvider] FOREIGN KEY ([SourceProviderKey])  REFERENCES [Dimensions].[DimSourceProvider]([SourceProviderKey]);
+
+ALTER TABLE [STP].[FactTradeAllocations]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeAllocations_DimExchange] FOREIGN KEY ([ExchangeKey])  REFERENCES [Dimensions].[DimExchange]([ExchangeKey]);
+
+ALTER TABLE [STP].[FactTradeAllocations]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeAllocations_DimCurrency] FOREIGN KEY ([CurrencyKey])  REFERENCES [Dimensions].[DimCurrency]([CurrencyKey]);
+
+ALTER TABLE [STP].[FactTradeAllocations]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeAllocations_DimTradingMethod] FOREIGN KEY ([TradingMethodKey])  REFERENCES [Dimensions].[DimTradingMethod]([TradingMethodKey]);
+
+ALTER TABLE [STP].[FactTradeAllocations]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeAllocations_DimBookingSystemAccount] FOREIGN KEY ([AllocationAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [STP].[FactTradeAllocations]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactTradeAllocations_DimBookingSystemAccount] FOREIGN KEY ([ClearingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [STP].[FactTradeAllocations]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactTradeAllocations_DimProduct] FOREIGN KEY ([ContractKey])  REFERENCES [Dimensions].[DimProduct]([ProductKey]);

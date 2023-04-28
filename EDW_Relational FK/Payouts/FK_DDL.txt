@@ -1,0 +1,62 @@
+ALTER TABLE [Payouts].[FactPayableBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayableBalances_DimPayableBalanceInfo] FOREIGN KEY ([PayableBalanceInfoKey])  REFERENCES [Dimensions].[DimPayableBalanceInfo]([PayableBalanceInfoKey]);
+
+ALTER TABLE [Payouts].[FactPayableBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayableBalances_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [Payouts].[FactPayableBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayableBalances_DimPayee] FOREIGN KEY ([PayeeKey])  REFERENCES [Dimensions].[DimPayee]([PayeeKey]);
+
+ALTER TABLE [Payouts].[FactPayableBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayableBalances_DimCurrency] FOREIGN KEY ([CurrencyKey])  REFERENCES [Dimensions].[DimCurrency]([CurrencyKey]);
+
+ALTER TABLE [Payouts].[FactPayableBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayableBalances_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [Payouts].[FactPayableBalances]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayableBalances_DimParty] FOREIGN KEY ([CommissionablePartyKey])  REFERENCES [Dimensions].[DimParty]([PartyKey]);
+
+ALTER TABLE [Payouts].[FactPayouts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayouts_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [Payouts].[FactPayouts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayouts_DimPayee] FOREIGN KEY ([PayeeKey])  REFERENCES [Dimensions].[DimPayee]([PayeeKey]);
+
+ALTER TABLE [Payouts].[FactPayouts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayouts_DimPayoutInfo] FOREIGN KEY ([PayoutInfoKey])  REFERENCES [Dimensions].[DimPayoutInfo]([PayoutInfoKey]);
+
+ALTER TABLE [Payouts].[FactPayouts]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactPayouts_DimDate] FOREIGN KEY ([ActivityDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [Payouts].[FactPayouts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayouts_DimSourceProvider] FOREIGN KEY ([SourceProviderKey])  REFERENCES [Dimensions].[DimSourceProvider]([SourceProviderKey]);
+
+ALTER TABLE [Payouts].[FactPayouts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayouts_DimDepartment] FOREIGN KEY ([DepartmentKey])  REFERENCES [Dimensions].[DimDepartment]([DepartmentKey]);
+
+ALTER TABLE [Payouts].[FactPayouts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayouts_DimCurrency] FOREIGN KEY ([CurrencyKey])  REFERENCES [Dimensions].[DimCurrency]([CurrencyKey]);
+
+ALTER TABLE [Payouts].[FactPayouts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayouts_DimBusinessUnit] FOREIGN KEY ([BusinessUnitKey])  REFERENCES [Dimensions].[DimBusinessUnit]([BusinessUnitKey]);
+
+ALTER TABLE [Payouts].[FactPayouts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayouts_DimBookingSystemAccount] FOREIGN KEY ([BookingSystemAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [Payouts].[FactPayouts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayouts_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [Payouts].[FactPayouts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayouts_DimOffice] FOREIGN KEY ([OfficeKey])  REFERENCES [Dimensions].[DimOffice]([OfficeKey]);
+
+ALTER TABLE [Payouts].[FactPayouts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayouts_DimExchange] FOREIGN KEY ([ExchangeKey])  REFERENCES [Dimensions].[DimExchange]([ExchangeKey]);
+
+ALTER TABLE [Payouts].[FactPayouts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayouts_DimTradingMethod] FOREIGN KEY ([TradingMethodKey])  REFERENCES [Dimensions].[DimTradingMethod]([TradingMethodKey]);
+
+ALTER TABLE [Payouts].[FactPayouts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayouts_DimGLAccount] FOREIGN KEY ([GLAccountKey])  REFERENCES [Dimensions].[DimGLAccount]([GLAccountKey]);
+
+ALTER TABLE [Payouts].[FactPayouts]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactPayouts_DimProduct] FOREIGN KEY ([ContractKey])  REFERENCES [Dimensions].[DimProduct]([ProductKey]);

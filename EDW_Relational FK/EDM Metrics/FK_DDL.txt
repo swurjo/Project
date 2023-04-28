@@ -1,0 +1,11 @@
+ALTER TABLE [EDMMetrics].[FactReportPulls]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactReportPulls_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [EDMMetrics].[FactReportPulls]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactReportPulls_DimEmployee] FOREIGN KEY ([EmployeeKey])  REFERENCES [Dimensions].[DimEmployee]([EmployeeKey]);
+
+ALTER TABLE [EDMMetrics].[FactReportPulls]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactReportPulls_DimAnalyticTool] FOREIGN KEY ([AnalyticToolKey])  REFERENCES [Dimensions].[DimAnalyticTool]([AnalyticToolKey]);
+
+ALTER TABLE [EDMMetrics].[FactReportPulls]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactReportPulls_DimMetricInfo] FOREIGN KEY ([MetricInfoKey])  REFERENCES [Dimensions].[DimMetricInfo]([MetricInfoKey]);

@@ -1,0 +1,23 @@
+ALTER TABLE [MarketParticipants].[FactAccountMarkets]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactAccountMarkets_DimExchange] FOREIGN KEY ([ExchangeKey])  REFERENCES [Dimensions].[DimExchange]([ExchangeKey]);
+
+ALTER TABLE [MarketParticipants].[FactAccountMarkets]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactAccountMarkets_DimAccountMarketInfo] FOREIGN KEY ([AccountMarketInfoKey])  REFERENCES [Dimensions].[DimAccountMarketInfo]([AccountMarketInfoKey]);
+
+ALTER TABLE [MarketParticipants].[FactAccountMarkets]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactAccountMarkets_DimDate] FOREIGN KEY ([LastAccountMarketTradeDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [MarketParticipants].[FactAccountMarkets]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactAccountMarkets_DimBookingSystemAccount] FOREIGN KEY ([TradingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [MarketParticipants].[FactParticipantAccountSnapshot]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactParticipantAccountSnapshot_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [MarketParticipants].[FactParticipantAccountSnapshot]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactParticipantAccountSnapshot_DimMarketParticipant] FOREIGN KEY ([MarketParticipantKey])  REFERENCES [Dimensions].[DimMarketParticipant]([MarketParticipantKey]);
+
+ALTER TABLE [MarketParticipants].[FactParticipantAccountSnapshot]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactParticipantAccountSnapshot_DimParticipantAccountInfo] FOREIGN KEY ([ParticipantAccountInfoKey])  REFERENCES [Dimensions].[DimParticipantAccountInfo]([ParticipantAccountInfoKey]);
+
+ALTER TABLE [MarketParticipants].[FactParticipantAccountSnapshot]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactParticipantAccountSnapshot_DimBookingSystemAccount] FOREIGN KEY ([TradingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);

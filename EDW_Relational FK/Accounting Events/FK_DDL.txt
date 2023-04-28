@@ -1,0 +1,92 @@
+ALTER TABLE [AccountingEvents].[FactSubledgerEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactSubledgerEvents_DimBusinessUnit] FOREIGN KEY ([BusinessUnitKey])  REFERENCES [Dimensions].[DimBusinessUnit]([BusinessUnitKey]);
+
+ALTER TABLE [AccountingEvents].[FactSubledgerEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactSubledgerEvents_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [AccountingEvents].[FactSubledgerEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactSubledgerEvents_DimBookingSystemAccount] FOREIGN KEY ([BookingSystemAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [AccountingEvents].[FactSubledgerEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactSubledgerEvents_DimSegregatedFund] FOREIGN KEY ([SegregatedFundKey])  REFERENCES [Dimensions].[DimSegregatedFund]([SegregatedFundKey]);
+
+ALTER TABLE [AccountingEvents].[FactSubledgerEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactSubledgerEvents_DimCarryingBroker] FOREIGN KEY ([CarryingBrokerKey])  REFERENCES [Dimensions].[DimCarryingBroker]([CarryingBrokerKey]);
+
+ALTER TABLE [AccountingEvents].[FactSubledgerEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactSubledgerEvents_DimExchange] FOREIGN KEY ([ExchangeKey])  REFERENCES [Dimensions].[DimExchange]([ExchangeKey]);
+
+ALTER TABLE [AccountingEvents].[FactSubledgerEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactSubledgerEvents_DimGLAccount] FOREIGN KEY ([GLAccountKey])  REFERENCES [Dimensions].[DimGLAccount]([GLAccountKey]);
+
+ALTER TABLE [AccountingEvents].[FactSubledgerEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactSubledgerEvents_DimSubledgerEventInfo] FOREIGN KEY ([SubledgerEventInfoKey])  REFERENCES [Dimensions].[DimSubledgerEventInfo]([SubledgerEventInfoKey]);
+
+ALTER TABLE [AccountingEvents].[FactSubledgerEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactSubledgerEvents_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [AccountingEvents].[FactSubledgerEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactSubledgerEvents_DimCurrency] FOREIGN KEY ([ReportingCurrencyKey])  REFERENCES [Dimensions].[DimCurrency]([CurrencyKey]);
+
+ALTER TABLE [AccountingEvents].[FactSubledgerEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactSubledgerEvents_DimCurrency] FOREIGN KEY ([BaseCurrencyKey])  REFERENCES [Dimensions].[DimCurrency]([CurrencyKey]);
+
+ALTER TABLE [AccountingEvents].[FactSubledgerEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK3_FactSubledgerEvents_DimCurrency] FOREIGN KEY ([TransactionCurrencyKey])  REFERENCES [Dimensions].[DimCurrency]([CurrencyKey]);
+
+ALTER TABLE [AccountingEvents].[FactSubledgerEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactSubledgerEvents_DimGLPosting] FOREIGN KEY ([GLPostingKey])  REFERENCES [Dimensions].[DimGLPosting]([GLPostingKey]);
+
+ALTER TABLE [AccountingEvents].[FactSubledgerEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactSubledgerEvents_DimSourceProvider] FOREIGN KEY ([SourceProviderKey])  REFERENCES [Dimensions].[DimSourceProvider]([SourceProviderKey]);
+
+ALTER TABLE [AccountingEvents].[FactSubledgerEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactSubledgerEvents_DimDepartment] FOREIGN KEY ([DepartmentOverrideKey])  REFERENCES [Dimensions].[DimDepartment]([DepartmentKey]);
+
+ALTER TABLE [AccountingEvents].[FactSubledgerEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactSubledgerEvents_DimProject] FOREIGN KEY ([ContractKey])  REFERENCES [Dimensions].[DimProject]([ProjectKey]);
+
+ALTER TABLE [AccountingEvents].[FactUbixClearingEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactUbixClearingEvents_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [AccountingEvents].[FactUbixClearingEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactUbixClearingEvents_DimSalesEntity] FOREIGN KEY ([SalesEntityKey])  REFERENCES [Dimensions].[DimSalesEntity]([SalesEntityKey]);
+
+ALTER TABLE [AccountingEvents].[FactUbixClearingEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactUbixClearingEvents_DimCurrency] FOREIGN KEY ([CurrencyKey])  REFERENCES [Dimensions].[DimCurrency]([CurrencyKey]);
+
+ALTER TABLE [AccountingEvents].[FactUbixClearingEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactUbixClearingEvents_DimExchange] FOREIGN KEY ([ExchangeKey])  REFERENCES [Dimensions].[DimExchange]([ExchangeKey]);
+
+ALTER TABLE [AccountingEvents].[FactUbixClearingEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactUbixClearingEvents_DimGLAccount] FOREIGN KEY ([GLAccountKey])  REFERENCES [Dimensions].[DimGLAccount]([GLAccountKey]);
+
+ALTER TABLE [AccountingEvents].[FactUbixClearingEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactUbixClearingEvents_DimUbixEventInfo] FOREIGN KEY ([UbixEventInfoKey])  REFERENCES [Dimensions].[DimUbixEventInfo]([UbixEventInfoKey]);
+
+ALTER TABLE [AccountingEvents].[FactUbixClearingEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactUbixClearingEvents_DimSourceProvider] FOREIGN KEY ([SourceProviderKey])  REFERENCES [Dimensions].[DimSourceProvider]([SourceProviderKey]);
+
+ALTER TABLE [AccountingEvents].[FactUbixClearingEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactUbixClearingEvents_DimBookingSystemAccount] FOREIGN KEY ([ClearingAccountKey])  REFERENCES [Dimensions].[DimBookingSystemAccount]([BookingSystemAccountKey]);
+
+ALTER TABLE [AccountingEvents].[FactUbixClearingEvents]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactUbixClearingEvents_DimProduct] FOREIGN KEY ([ContractKey])  REFERENCES [Dimensions].[DimProduct]([ProductKey]);
+
+ALTER TABLE [AccountingEvents].[FactUbixProcessing]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactUbixProcessing_DimDate] FOREIGN KEY ([BusinessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [AccountingEvents].[FactUbixProcessing]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactUbixProcessing_DimTime] FOREIGN KEY ([BusinessTimeKey])  REFERENCES [Dimensions].[DimTime]([TimeKey]);
+
+ALTER TABLE [AccountingEvents].[FactUbixProcessing]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactUbixProcessing_DimExchange] FOREIGN KEY ([ExchangeKey])  REFERENCES [Dimensions].[DimExchange]([ExchangeKey]);
+
+ALTER TABLE [AccountingEvents].[FactUbixProcessing]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactUbixProcessing_DimDate] FOREIGN KEY ([ProcessDateKey])  REFERENCES [Dimensions].[DimDate]([DateKey]);
+
+ALTER TABLE [AccountingEvents].[FactUbixProcessing]
+    WITH NOCHECK ADD CONSTRAINT [FK2_FactUbixProcessing_DimTime] FOREIGN KEY ([ProcessTimeKey])  REFERENCES [Dimensions].[DimTime]([TimeKey]);
+
+ALTER TABLE [AccountingEvents].[FactUbixProcessing]
+    WITH NOCHECK ADD CONSTRAINT [FK1_FactUbixProcessing_DimUbixProcessingInfo] FOREIGN KEY ([UbixProcessingInfoKey])  REFERENCES [Dimensions].[DimUbixProcessingInfo]([UbixProcessingInfoKey]);

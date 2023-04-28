@@ -1,0 +1,59 @@
+ALTER TABLE Utilities.FactAccountCustomerBridge
+    WITH NOCHECK ADD CONSTRAINT FK1_FactAccountCustomerBridge_DimDepartment FOREIGN KEY (CurrentDepartmentKey)  REFERENCES Dimensions.DimDepartment(DepartmentKey)
+
+ALTER TABLE Utilities.FactBrokerClientClassifications
+    WITH NOCHECK ADD CONSTRAINT FK1_FactBrokerClientClassifications_DimBrokerGroup FOREIGN KEY (BrokerGroupKey)  REFERENCES Dimensions.DimBrokerGroup(BrokerGroupKey)
+
+ALTER TABLE Utilities.FactBrokerClientClassifications
+    WITH NOCHECK ADD CONSTRAINT FK1_FactBrokerClientClassifications_DimSalesEntity FOREIGN KEY (SalesEntityKey)  REFERENCES Dimensions.DimSalesEntity(SalesEntityKey)
+
+ALTER TABLE Utilities.FactBrokerClientClassifications
+    WITH NOCHECK ADD CONSTRAINT FK1_FactBrokerClientClassifications_DimClient FOREIGN KEY (BrokerClientKey)  REFERENCES Dimensions.DimClient(ClientKey)
+
+ALTER TABLE Utilities.FactBrokerClientClassifications
+    WITH NOCHECK ADD CONSTRAINT FK2_FactBrokerClientClassifications_DimClient FOREIGN KEY (FirmClientKey)  REFERENCES Dimensions.DimClient(ClientKey)
+
+ALTER TABLE Utilities.FactCorporateClassifications
+    WITH NOCHECK ADD CONSTRAINT FK1_FactCorporateClassifications_DimDepartment FOREIGN KEY (DepartmentKey)  REFERENCES Dimensions.DimDepartment(DepartmentKey)
+
+ALTER TABLE Utilities.FactCorporateClassifications
+    WITH NOCHECK ADD CONSTRAINT FK1_FactCorporateClassifications_DimSourceProvider FOREIGN KEY (SourceProviderKey)  REFERENCES Dimensions.DimSourceProvider(SourceProviderKey)
+
+ALTER TABLE Utilities.FactCorporateClassifications
+    WITH NOCHECK ADD CONSTRAINT FK1_FactCorporateClassifications_DimSalesEntity FOREIGN KEY (SalesEntityKey)  REFERENCES Dimensions.DimSalesEntity(SalesEntityKey)
+
+ALTER TABLE Utilities.FactCorporateReclasses
+    WITH NOCHECK ADD CONSTRAINT FK1_FactCorporateReclasses_DimSalesEntity FOREIGN KEY (SalesEntityKey)  REFERENCES Dimensions.DimSalesEntity(SalesEntityKey)
+
+ALTER TABLE Utilities.FactCorporateReclasses
+    WITH NOCHECK ADD CONSTRAINT FK1_FactCorporateReclasses_DimDate FOREIGN KEY (ReclassDateKey)  REFERENCES Dimensions.DimDate(DateKey)
+
+ALTER TABLE Utilities.FactCorporateReclasses
+    WITH NOCHECK ADD CONSTRAINT FK2_FactCorporateReclasses_DimDate FOREIGN KEY (BusinessDateKey)  REFERENCES Dimensions.DimDate(DateKey)
+
+ALTER TABLE Utilities.FactCorporateReclasses
+    WITH NOCHECK ADD CONSTRAINT FK1_FactCorporateReclasses_DimDepartment FOREIGN KEY (ReclassDepartmentKey)  REFERENCES Dimensions.DimDepartment(DepartmentKey)
+
+ALTER TABLE Utilities.FactCorporateReclasses
+    WITH NOCHECK ADD CONSTRAINT FK2_FactCorporateReclasses_DimDepartment FOREIGN KEY (PriorDepartmentKey)  REFERENCES Dimensions.DimDepartment(DepartmentKey)
+
+ALTER TABLE Utilities.FactCurrencyExchangeRates
+    WITH NOCHECK ADD CONSTRAINT FK1_FactCurrencyExchangeRates_DimCurrency FOREIGN KEY (CurrencyKey)  REFERENCES Dimensions.DimCurrency(CurrencyKey)
+
+ALTER TABLE Utilities.FactCurrencyExchangeRates
+    WITH NOCHECK ADD CONSTRAINT FK1_FactCurrencyExchangeRates_DimDate FOREIGN KEY (BusinessDateKey)  REFERENCES Dimensions.DimDate(DateKey)
+
+ALTER TABLE Utilities.FactHolidays
+    WITH NOCHECK ADD CONSTRAINT FK1_FactHolidays_DimCurrency FOREIGN KEY (CurrencyKey)  REFERENCES Dimensions.DimCurrency(CurrencyKey)
+
+ALTER TABLE Utilities.FactHolidays
+    WITH NOCHECK ADD CONSTRAINT FK1_FactHolidays_DimCountry FOREIGN KEY (CountryKey)  REFERENCES Dimensions.DimCountry(CountryKey)
+
+ALTER TABLE Utilities.FactHolidays
+    WITH NOCHECK ADD CONSTRAINT FK1_FactHolidays_DimHolidayInfo FOREIGN KEY (HolidayInfoKey)  REFERENCES Dimensions.DimHolidayInfo(HolidayInfoKey)
+
+ALTER TABLE Utilities.FactHolidays
+    WITH NOCHECK ADD CONSTRAINT FK2_FactHolidays_DimHolidayInfo FOREIGN KEY (NationalBankHolidayInfoKey)  REFERENCES Dimensions.DimHolidayInfo(HolidayInfoKey)
+
+ALTER TABLE Utilities.FactPipelineVintages
+    WITH NOCHECK ADD CONSTRAINT FK1_FactPipelineVintages_DimPipelineVintage FOREIGN KEY (PipelineVintageKey)  REFERENCES Dimensions.DimPipelineVintage(PipelineVintageKey)
